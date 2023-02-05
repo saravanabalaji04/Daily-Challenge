@@ -39,16 +39,22 @@ public class Hello {
         int k=0,j=0;
         int arr[]=new int[1000];
         int brr[]=new int[1000];
-        System.out.print("*");
-        for(int i=b;i<=a;i=i+=b)
+        for(int i=b;i<=a;i++)
         {
-            arr[k]=i;
-            k++;
+            if(i%b==0)
+            {
+                arr[k]=i;
+                k++;
+            }
         }
-        for(int i=a;i>=b;i-=b)
+        int n=arr.length;
+        for(int i=a;i>=b;i--)
         {
-            brr[j]=i;
-            j++;
+            if(i%b==0)
+            {
+                brr[j]=i;
+                j++;
+            }
         }
         for(int i=0;;i++)
         {
@@ -56,6 +62,13 @@ public class Hello {
             {
                 System.out.print(arr[i]+" ");
                 System.out.print(brr[i]+" ");
+                if(n%2==0)
+                {
+                    if(brr[i]==arr[i+1])
+                    {
+                        break;
+                    }
+                }
             }
             else if(arr[i]==brr[i])
             {
