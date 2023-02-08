@@ -1,0 +1,46 @@
+/*The program must accept an integer N as the input. The program must swap the last two digits of N if
+N is an odd integer. Else the program must remove the last two digits. Finally, the program must print
+the modified N as the output.
+Boundary Condition(s):
+100 <= N <= 10^8
+Input Format:
+The first line contains N.
+Output Format:
+The first line contains the modified N.
+Example Input/Output 1:
+Input:
+1245
+Output:
+1254
+Explanation:
+1245 is an odd integer so the last two digits are swapped and the output 1254 is printed.
+Example Input/Output 2:
+Input:
+63532
+Output:
+635
+*/
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        if(n%2==0)
+        {
+            System.out.print(n/100);
+        }
+        else
+        {
+            String str=Integer.toString(n);
+            String arr[]=str.split("");
+            int n1=arr.length;
+            String u=arr[n1-1];
+            String l=arr[n1-2];
+            String str1=str.substring(0,n1-2);
+            System.out.print(str1+u+l);
+        }
+    }
+}
