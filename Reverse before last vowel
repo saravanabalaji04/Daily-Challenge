@@ -1,0 +1,41 @@
+/*Sample input:
+ethernet
+Sample output:
+nrehteet
+*/
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner s=new Scanner(System.in);
+        String str=s.next();
+        char arr[]=str.toCharArray();
+        int n=arr.length;
+        int j=0,flag=0;
+        char brr[]=new char[n];
+        for(int i=n-1;i>=0;i--)
+        {
+            if((arr[i]!='a') && (arr[i]!='e') && (arr[i]!='o') && (arr[i]!='u') && (arr[i]!='i') && (flag==0))
+            {
+                brr[j]=arr[i];
+                j++;
+            }
+            else if(flag==0)
+            {
+                brr[j]=arr[i];
+                j++;
+                flag=1;
+            }
+            else
+            {
+                System.out.print(arr[i]);
+            }
+        }
+        for(int k=j-1;k>=0;k--)
+        {
+            System.out.print(brr[k]);
+        }
+	}
+}
