@@ -1,5 +1,4 @@
-
-The program must accept an NxN matrix as the input. The program must print yes if the sum of each
+/*The program must accept an NxN matrix as the input. The program must print yes if the sum of each
 column in the matrix is equal to 0. Else the program must print no as the output.
 Boundary Condition(s):
 1 <= N <= 100
@@ -30,3 +29,48 @@ Input:
 -4 12 25 13 2
 Output:
 no
+*/
+
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int flag=0,sum=0;
+        int [][]a=new int[n][n];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                a[i][j]=s.nextInt();
+                
+            }
+        }
+        for(int j=0;j<n;j++)
+        {
+            if(flag==1)
+            {
+                break;
+            }
+            for(int i=0;i<n;i++)
+            {
+                sum+=a[i][j];
+            }
+            if(sum!=0)
+            {
+                flag=1;
+            }
+        }
+        if(flag==0)
+        {
+            System.out.print("yes");
+        }
+        else
+        {
+            System.out.print("no");
+        }
+	}
+}
