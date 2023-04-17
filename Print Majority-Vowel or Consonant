@@ -1,0 +1,66 @@
+/*
+The program must accept a string S as the input. The program must print only the vowels in the string
+if the vowel count is larger than the consonant count. Else the program must print only the consonants
+in S as the output. If both the counts are equal, then the program must print the string as it is without
+any change.
+Note: The alphabets must be printed in the same order as given in the input.
+Boundary Condition(s):
+1 <= Length of S <= 1000
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains the string based on the given condition.
+Example Input/Output 1:
+Input:
+takeout
+Output:
+aeou
+Explanation:
+The number of vowels in takeout is 4.
+The number of consonants in takeout is 3.
+Hence the vowels are printed.
+Example Input/Output 2:
+Input:
+partyhall
+Output:
+prtyhll
+*/
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner s=new Scanner(System.in);
+        String str=s.next();
+        String vow=" ";
+        String cons=" ";
+        int vcount=0,ccount=0;
+        char st[]=str.toCharArray();
+        for(int i=0;i<st.length;i++)
+        {
+            if(st[i]=='a' || st[i]=='e' || st[i]=='i' || st[i]=='o'||st[i]=='u'||st[i]=='A'||st[i]=='E'||st[i]=='I'||st[i]=='O'||st[i]=='U')
+            {
+                vow+=st[i];
+                vcount++;
+            }
+            else
+            {
+                cons+=st[i];
+                ccount++;
+            }
+        }
+        if(vcount>ccount)
+        {
+            System.out.print(vow);
+        }
+        else if(ccount>vcount)
+        {
+            System.out.print(cons);
+        }
+        else
+        {
+            System.out.print(str);
+        }
+	}
+}
