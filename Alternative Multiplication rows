@@ -1,0 +1,79 @@
+/*
+The program must accept an integer matrix of size RxC as the input. The program must print the first
+row elements multiplied by the last row elements in the matrix, then the program must print the
+second row elements multiplied by the last but one row elements in the matrix, then the program
+must print the third row elements multiplied by the elements in the third row from the end and so on.
+If R is odd the program must just print the elements which are present in the (R+1)/2 row in the
+matrix.
+Boundary Condition(s):
+1 <= R, C <= 100
+Input Format:
+The first line contains R and C separated by a space.
+The next R lines contain C integers separated by space(s).
+Output Format:
+The first (R+1)/2 lines contain C integers separated by a space.
+Example Input/Output 1:
+Input:
+5 3
+9 8 4
+2 7 8
+0 9 2
+8 2 4
+5 6 7
+Output:
+45 48 28
+16 14 32
+0 9 2
+Explanation:
+The first row elements are 9, 8 and 4 and the fifth row elements are 5, 6 and 7 and their multiplication
+values are 45, 48 and 28. So 45 48 28 are printed.
+The second row elements are 2, 7 and 8 and the fourth row elements are 8, 2 and 4 and their
+multiplication values are 16, 14 and 32. So 16 14 32 are printed.
+The third row elements are 0, 9 and 2. As R (which is equal to 5) is odd the third row does not have a
+correspoding row to be multiplies and hence only 0 9 2 is printed.
+Example Input/Output 2:
+Input:
+4 5
+7 6 5 2 3
+1 9 0 2 4
+8 2 4 8 1
+0 4 4 2 7
+*/
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner s=new Scanner(System.in);
+        int r=s.nextInt();
+        int c=s.nextInt();
+        int arr[][]=new int[r][c];
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                arr[i][j]=s.nextInt();
+            }
+        }
+        int a=r,b=0;
+        for(int j=0;j<r/2;j++)
+        {
+            for(int i=0;i<c;i++)
+            {
+                System.out.print(arr[j][i]*arr[a-1][b]+" ");
+                b++;
+            }
+            a--;
+            b=0;
+            System.out.println();
+        }
+        if(r%2!=0)
+        {
+            for(int j=0;j<c;j++)
+            {
+                System.out.print(arr[r/2][j]+" ");
+            }
+        }
+	}
+}
